@@ -33,8 +33,8 @@ a {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  align-items: stretch;
-  justify-content: center;
+  /* align-items: stretch;
+  justify-content: center; */
   font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
   color: white;
@@ -114,8 +114,8 @@ img {
 .container__main {
   max-width: 80vmin;
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
-  align-items: stretch;
   justify-content: center;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
@@ -124,6 +124,7 @@ img {
 
 .container__header {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
 }
@@ -195,39 +196,29 @@ img {
 }
 
 
-
 .container__game {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-table {
-  background-color: rgba(255, 255, 255, 0.25);
-  margin-top: 10px;
-  border-collapse: collapse;
-  table-layout: fixed;
   width: 100%;
-  aspect-ratio: 1/1;
-
-}
-
-td {
-  border: 2px solid black;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: rgba(255, 255, 255, 0.25);
+  border: 3px solid black;
   padding: 0;
+  margin-top: 10px;
 }
 
-
-button {
-  border-style: none;
-  background-color: transparent;
+.container__game--square {
+  flex-grow: 1;
+  width: 10%;
+  padding: 5px;
   aspect-ratio: 1/1;
+  border: 1px solid black;
+  background-color: transparent;
 }
 
-td:hover {
-  background-color: rgba(255, 255, 255, 0.5);
+.container__game--square:hover {
+  background-color: rgba(255, 255, 255, 0.25);
 }
 
-td:focus {
-  background-color: rgba(255, 255, 255, 0.5);
+.container__game--square:focus {
+  background-color: rgba(255, 255, 255, 0.25);
 }
