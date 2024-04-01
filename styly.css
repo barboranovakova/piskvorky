@@ -82,6 +82,7 @@ img {
   text-align: center;
   padding-top: 15px;
   cursor: pointer;
+  border-bottom: 1.5px solid black;
 }
 
 .container__buttons--play {
@@ -96,7 +97,15 @@ img {
   background-color: #1cbb96;
 }
 
+.container__buttons--pravidla:focus {
+  background-color: #1cbb96;
+}
+
 .container__buttons--play:hover {
+  background-color: #0090e9;
+}
+
+.container__buttons--play:focus {
   background-color: #0090e9;
 }
 
@@ -114,7 +123,9 @@ img {
 }
 
 .container__header {
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .container__navigation {
@@ -133,6 +144,7 @@ img {
 
 .container__navigation--text {
   margin-right: 7px;
+  font-size: 20px;
 }
 
 .container__navigation--icon {
@@ -142,20 +154,26 @@ img {
 
 .container__navigation--buttons {
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-start;
+  width: 80px;
+
 }
 
 .container__navigation--home {
   margin-right: 5px;
   display: flex;
   background-color: #1fcca4;
-  cursor: pointer;
   padding: 10%;
+  cursor: pointer;
   border-radius: 10%;
   aspect-ratio: 1/1;
 }
 
 .container__navigation--home:hover {
+  background-color: #1cbb96;
+}
+
+.container__navigation--home:focus {
   background-color: #1cbb96;
 }
 
@@ -172,18 +190,20 @@ img {
   background-color: #0090e9;
 }
 
+.container__navigation--again:focus {
+  background-color: #0090e9;
+}
+
 
 
 .container__game {
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
 
-
 table {
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.25);
   margin-top: 10px;
   border-collapse: collapse;
   table-layout: fixed;
@@ -205,5 +225,9 @@ button {
 }
 
 td:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+td:focus {
   background-color: rgba(255, 255, 255, 0.5);
 }
