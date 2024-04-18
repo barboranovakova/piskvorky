@@ -1,4 +1,7 @@
+import { findWinner } from 'https://unpkg.com/piskvorky@0.1.4';
+
 let currentPlayer = 'circle';
+const hraciPole = document.querySelectorAll('button');
 
 const vybratPole = (evt) => {
   evt.target.disabled = true;
@@ -13,35 +16,55 @@ const vybratPole = (evt) => {
     const kdoHraje = document.querySelector('.navigace_ikona');
     kdoHraje.src = 'circle.svg';
   }
+  const aktualniPole = Array.from(hraciPole).map((button) => {
+    if (button.classList.contains('container__game--circle')) {
+      return 'o';
+    }
+    if (button.classList.contains('container__game--cross')) {
+      return 'x';
+    }
+    return '_';
+  });
+  const vitez = findWinner(aktualniPole);
+  if (vitez === 'o') {
+    alert('Kolečko je borec!');
+    location.reload();
+  } else if (vitez === 'x') {
+    alert('X dobře ty! Kolečko se může jít klouzat');
+    location.reload();
+  } else if (vitez === 'tie') {
+    alert('Smůla, nemáme vítěze, ani poraženého. Zkuste to znova');
+    location.reload();
+  }
 };
+console.log(hraciPole);
 
-document
-  .querySelector('button:nth-child(1)')
-  .addEventListener('click', vybratPole);
-document
-  .querySelector('button:nth-child(2)')
-  .addEventListener('click', vybratPole);
-document
-  .querySelector('button:nth-child(3)')
-  .addEventListener('click', vybratPole);
-document
-  .querySelector('button:nth-child(4)')
-  .addEventListener('click', vybratPole);
-document
-  .querySelector('button:nth-child(5)')
-  .addEventListener('click', vybratPole);
-document
-  .querySelector('button:nth-child(6)')
-  .addEventListener('click', vybratPole);
-document
-  .querySelector('button:nth-child(7)')
-  .addEventListener('click', vybratPole);
-document
-  .querySelector('button:nth-child(8)')
-  .addEventListener('click', vybratPole);
-document
-  .querySelector('button:nth-child(9)')
-  .addEventListener('click', vybratPole);
-document
-  .querySelector('button:nth-child(10)')
-  .addEventListener('click', vybratPole);
+const aktualniPole = Array.from(hraciPole).map((button) => {
+  if (button.classList.contains('container__game--circle')) {
+    return 'o';
+  }
+  if (button.classList.contains('container__game--cross')) {
+    return 'x';
+  }
+  return '_';
+});
+
+console.log(aktualniPole);
+
+const vitez = findWinner(aktualniPole);
+if (vitez === 'o') {
+  alert('Kolečko je borec!');
+  location.reload();
+} else if (vitez === 'x') {
+  alert('X dobře ty! Kolečko se může jít klouzat');
+  location.reload();
+} else if (vitez === 'tie') {
+  alert('Smůla, nemáme vítěze, ani poraženého. Zkuste to znova');
+  location.reload();
+}
+
+console.log(vitez);
+
+hraciPole.forEach((button) => {
+  button.addEventListener('click', vybratPole);
+});
